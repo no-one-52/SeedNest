@@ -1,32 +1,25 @@
-<!-- <?php
-session_start();
-?> -->
+<?php
+// include("session.php");
+//session_start();
+
+// Check if session is not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 
-
-
-
-
-
-
-
-
-
+?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="navbar">
 
-
     <a href="index.php" class="link_box">
         <div class="nav-logo border">
             <div class="logo"></div>
         </div>
     </a>
-
-
-
 
     <div class="nav-address border">
         <p class="add-first">At your</p>
@@ -45,21 +38,6 @@ session_start();
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-    <div class="clickable-div">
-                    <a href="loginp.php">Login</a>
-                    <a href="signupp.php">Sign Up</a>     
-                </div>
-
-    <!-- Conditional content based on session
     <div class="clickable-div">
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
             <a href="accountp.php">My Account</a>
@@ -68,27 +46,12 @@ session_start();
             <a href="loginp.php">Login</a>
             <a href="signupp.php">Sign Up</a>
         <?php endif; ?>
-    </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
     <div class="nav-return border">
         <p><span>Returns</span></p>
         <p class="nav-second">& Orders</p>
     </div>
-
 
     <a href="addcartp.php" class="link_box">
         <div class="nav-cart border">
@@ -98,10 +61,7 @@ session_start();
     </a>
 </div>
 
-
-
 <!-- Second part panel -->
-
 
 <div class="panel">
     <div class="panel-all">
@@ -113,22 +73,13 @@ session_start();
         <p>Today's Deals</p>
         <p>Customer Service</p>
         <p>Gift Cards</p>
-
     </div>
-
 
     <div class="panel-deals">
         Shop deals in discount
     </div>
-
 </div>
-
 </header>
-
-
-
-
-
 
 <script>
     document.querySelector('.foot-panel1').addEventListener('click', function() {

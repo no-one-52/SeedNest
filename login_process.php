@@ -33,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verify password
         if (password_verify($password, $hashed_password)) {
-            // Password is correct, redirect to index.php
+            // Password is correct, set session variables and redirect to index.php
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $id; // Store user ID for future use
             header("Location: index.php");
             exit();
         } else {
@@ -44,44 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // User not found
         $_SESSION['error_message'] = "No account found with that Gmail or phone number.";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // if (password_verify($password, $hashed_password)) {
-    //     // Password is correct, set session variables and redirect to index.php
-    //     $_SESSION['loggedin'] = true;
-    //     $_SESSION['user_id'] = $id; // Store user ID for future use
-    //     header("Location: index.php");
-    //     exit();
-    // } else {
-    //     // Incorrect password
-    //     $_SESSION['error_message'] = "Incorrect password. Please try again.";
-    // }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     $stmt->close();
     $conn->close();
